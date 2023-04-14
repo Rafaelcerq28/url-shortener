@@ -1,5 +1,8 @@
 package com.br.urlshortener.urlshortener.service;
 
+import java.util.Optional;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.br.urlshortener.urlshortener.model.Address;
@@ -15,6 +18,9 @@ public class UrlShortenerService {
 
     private UrlShortenerRepository urlShortenerRepository;
 
+    /* 
+     * This method create a shortened URL based on ID
+     */
     public Address createShortenedUrl(Address url){
         
         url = urlShortenerRepository.save(url);        
@@ -23,5 +29,14 @@ public class UrlShortenerService {
         return urlShortenerRepository.save(url);
     }
 
+    public Address getOriginalUrl(String urlShortened){
+
+        Optional<Address> url = urlShortenerRepository.findByurlShortened(urlShortened);
+
+        //to do
+        //implement click counter method
+
+        return url.orElse(null);
+    }
 
 }

@@ -32,6 +32,9 @@ public class Address {
     private String urlOriginal;
     
     @Column
+    private int clickCounter;
+
+    @Column
     private String urlShortened;
 
     @CreationTimestamp
@@ -76,13 +79,7 @@ public class Address {
             id = id / 62;
         }
 
-        //Fill short results with special caracteres
-        int contador = 0;
-        while(shorturl.length() <6){
-            char cod[] = "@$%#$%".toCharArray(); 
-            shorturl.append(cod[contador]);
-            contador++;
-        }
+        //TO DO colocar xPtO na frente das urls curtas
 
         // Reverse shortURL to complete base conversion
         return shorturl.reverse().toString();
