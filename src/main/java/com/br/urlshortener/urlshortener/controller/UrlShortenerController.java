@@ -53,13 +53,12 @@ public class UrlShortenerController {
 				!redirect.substring(0, HTTPS_PREFIX.length()).equals(HTTPS_PREFIX)) {
 			redirect = HTTP_PREFIX.concat(redirect);
 		}
-
-        
+   
         try {
             URI uri = new URI(redirect);
             HttpHeaders httpHeaders = new HttpHeaders();
             httpHeaders.setLocation(uri);
-            System.out.println("ok");
+            //System.out.println("ok");
             return new ResponseEntity<>(httpHeaders,HttpStatus.SEE_OTHER);
 
         } catch (URISyntaxException e) {

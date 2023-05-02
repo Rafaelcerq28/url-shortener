@@ -64,6 +64,14 @@ public class Address {
         this.urlShortened = urlShortened;
     }
 
+    public int getClickCounter() {
+        return clickCounter;
+    }
+
+    public void setClickCounter(int clickCounter) {
+        this.clickCounter = clickCounter;
+    }
+
     public String generateShortUrl(int id){
         // Map to store 62 possible characters
         char map[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
@@ -79,8 +87,12 @@ public class Address {
             id = id / 62;
         }
 
-        //TO DO colocar xPtO na frente das urls curtas
+        for(int i = 0;i<6; i++){
+            char sequence[] = "2SOtPx".toCharArray();
+            
+            shorturl.append(sequence[i]);
 
+        }
         // Reverse shortURL to complete base conversion
         return shorturl.reverse().toString();
     }

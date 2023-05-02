@@ -2,7 +2,6 @@ package com.br.urlshortener.urlshortener.service;
 
 import java.util.Optional;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.br.urlshortener.urlshortener.model.Address;
@@ -29,13 +28,26 @@ public class UrlShortenerService {
         return urlShortenerRepository.save(url);
     }
 
+    /* 
+     * This method get the original URL and update click counter
+     */
     public Address getOriginalUrl(String urlShortened){
 
         Optional<Address> url = urlShortenerRepository.findByurlShortened(urlShortened);
 
-        //to do
-        //implement click counter method
-
+        //Click counter
+        try {
+            //set Optional URL into address
+            Address updateAddress = url.get();
+            //Update click counter
+            updateAddress.setClickCounter(updateAddress.getClickCounter() + 1);
+            //save
+            urlShortenerRepository.save(updateAddress);
+            //System.out.println(updateAddress.getClickCounter());
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        
         return url.orElse(null);
     }
 
