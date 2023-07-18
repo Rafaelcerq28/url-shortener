@@ -15,7 +15,7 @@ To install and run the URL Shortener API, follow the steps below:
 1. Clone the repository from GitHub:
 
    ```shell
-   git clone https://github.com/<your-username>/<repository-name>.git
+   https://github.com/Rafaelcerq28/url-shortener.git
    ```
 
 2. Open the project in your preferred Java development environment (e.g., IntelliJ IDEA, Eclipse).
