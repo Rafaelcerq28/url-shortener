@@ -4,6 +4,8 @@ import java.time.Instant;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -29,6 +31,7 @@ public class Address {
     private int id;
 
     @Column(nullable = false)
+    @JsonProperty("link")
     private String urlOriginal;
     
     @Column
